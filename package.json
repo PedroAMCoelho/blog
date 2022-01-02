@@ -1,0 +1,30 @@
+{
+  "name": "blog-backend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PedroAMCoelho/blog.git"
+  },
+  "author": "Pedro Coelho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PedroAMCoelho/blog/issues"
+  },
+  "homepage": "https://github.com/PedroAMCoelho/blog#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
