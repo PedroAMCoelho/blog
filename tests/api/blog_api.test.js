@@ -7,12 +7,8 @@ const Blog = require('../../models/blog')
 
 beforeEach(async () => {
   await Blog.deleteMany({})
-
-  for (let blog of helper.initialBlogs) {
-    let blogObject = new Blog(blog)
-    await blogObject.save()
-  }
-})
+  await Blog.insertMany(helper.initialBlogs)
+}, 100000)
 
 test('blogs are returned as json', async () => {
   await api
@@ -40,6 +36,27 @@ test('a valid blog can be added', async () => {
   
     const titles = blogsAtEnd.map(t => t.title)
     expect(titles).toContain('Test title')
+  })
+
+  describe('deletion of a blog', () => {
+    test('succeeds with status code 204 if id is valid', async () => {
+      const blogsAtStart = await helper.blogsInDb()
+      const blogToDelete = blogsAtStart[0]
+  
+      await api
+        .delete(`/api/blogs/${blogToDelete.id}`)
+        .expect(204)
+  
+      const blogsAtEnd = await helper.blogsInDb()
+  
+      expect(blogsAtEnd).toHaveLength(
+        helper.initialBlogs.length - 1
+      )
+  
+      const titles = blogsAtEnd.map(r => r.title)
+  
+      expect(titles).not.toContain(blogToDelete.title)
+    })
   })
 
 afterAll((done) => {
