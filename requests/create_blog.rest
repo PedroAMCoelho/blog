@@ -1,9 +1,9 @@
 POST http://localhost:5000/api/blogs/
 content-type: application/json
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRBcnRvIEhlbGxhcyIsImlkIjoiNjFkNDlmYTk3OWE4NzM0NjdmY2MyMmMzIiwiaWF0IjoxNjQxMzQ0OTIzfQ.KDJEiJmjkA1BhCcoO-o6gENBjGUghZyj_BxFj7KSt_E
 
 {
-    "title": "test blog", 
-    "author": "blogger",
-    "url": "blog.com",
-    "likes": 2
+    "title": "btest blog 2", 
+    "author": "bblogger",
+    "url": "bblog.com"
 }
